@@ -5,6 +5,8 @@ import confetti from 'canvas-confetti';
 
 interface FormData {
   nom: string;
+  prenom: string;
+  telephone: string;
   statut_rsvp: 'oui' | 'non';
   nombre_personnes: number;
 }
@@ -16,6 +18,8 @@ interface RSVPFormProps {
 export default function RSVPForm({ onSubmitSuccess }: RSVPFormProps) {
   const [formData, setFormData] = useState<FormData>({
     nom: '',
+    prenom: '',
+    telephone: '',
     statut_rsvp: 'oui',
     nombre_personnes: 1,
   });
@@ -68,6 +72,18 @@ export default function RSVPForm({ onSubmitSuccess }: RSVPFormProps) {
       return;
     }
 
+    if (!formData.prenom.trim()) {
+      setError('Veuillez entrer votre prénom');
+      setLoading(false);
+      return;
+    }
+
+    if (!formData.telephone.trim()) {
+      setError('Veuillez entrer votre numéro de téléphone');
+      setLoading(false);
+      return;
+    }
+
     try {
       const response = await fetch('/api/rsvp', {
         method: 'POST',
@@ -116,7 +132,39 @@ export default function RSVPForm({ onSubmitSuccess }: RSVPFormProps) {
             name="nom"
             value={formData.nom}
             onChange={handleChange}
-            placeholder="Entrez votre nom complet"
+            placeholder="Entrez votre nom"
+            className="input-elegant"
+            required
+          />
+        </div>
+
+        {/* Prénom */}
+        <div>
+          <label className="block text-sm font-semibold text-gray-700 mb-2">
+            Votre prénom *
+          </label>
+          <input
+            type="text"
+            name="prenom"
+            value={formData.prenom}
+            onChange={handleChange}
+            placeholder="Entrez votre prénom"
+            className="input-elegant"
+            required
+          />
+        </div>
+
+        {/* Téléphone */}
+        <div>
+          <label className="block text-sm font-semibold text-gray-700 mb-2">
+            Numéro de téléphone *
+          </label>
+          <input
+            type="tel"
+            name="telephone"
+            value={formData.telephone}
+            onChange={handleChange}
+            placeholder="Entrez votre numéro de téléphone"
             className="input-elegant"
             required
           />
