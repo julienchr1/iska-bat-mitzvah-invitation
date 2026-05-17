@@ -96,9 +96,14 @@ export default function RSVPForm({ onSubmitSuccess }: RSVPFormProps) {
 
   return (
     <div className="card-elegant p-6 md:p-8 animate-fade-in-up">
-      <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
-        Confirmer votre présence
-      </h2>
+      <div className="mb-6">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
+          Confirmer votre présence
+        </h2>
+        <p className="text-sm text-gray-600 mt-2 italic">
+          Cérémonie réservée aux femmes/filles
+        </p>
+      </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Nom */}
