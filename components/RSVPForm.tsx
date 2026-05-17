@@ -218,7 +218,7 @@ export default function RSVPForm({ onSubmitSuccess }: RSVPFormProps) {
               value={formData.nombre_personnes}
               onChange={handleChange}
               min="1"
-              max="5"
+              max="10"
               className="input-elegant flex-1 text-center text-lg font-semibold"
             />
             <button
