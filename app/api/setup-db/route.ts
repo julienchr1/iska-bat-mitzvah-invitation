@@ -32,7 +32,9 @@ export async function POST(request: NextRequest) {
         CREATE TABLE IF NOT EXISTS rsvp_responses (
           id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
           nom TEXT NOT NULL,
-          statut_rsvp TEXT NOT NULL CHECK (statut_rsvp IN ('oui', 'non', 'peut-être')),
+          prenom TEXT NOT NULL,
+          telephone TEXT NOT NULL,
+          statut_rsvp TEXT NOT NULL CHECK (statut_rsvp IN ('oui', 'non')),
           nombre_personnes INTEGER NOT NULL DEFAULT 1,
           created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
           updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()

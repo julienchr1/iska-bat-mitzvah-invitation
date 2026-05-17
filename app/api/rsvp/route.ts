@@ -13,7 +13,9 @@ const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
 const RSVPSchema = z.object({
   nom: z.string().min(1, 'Le nom est requis').max(100),
-  statut_rsvp: z.enum(['oui', 'non', 'peut-être']),
+  prenom: z.string().min(1, 'Le prénom est requis').max(100),
+  telephone: z.string().min(1, 'Le téléphone est requis').max(20),
+  statut_rsvp: z.enum(['oui', 'non']),
   nombre_personnes: z.number().int().min(1).max(5),
 });
 
@@ -30,6 +32,8 @@ export async function POST(request: NextRequest) {
       .insert([
         {
           nom: validatedData.nom,
+          prenom: validatedData.prenom,
+          telephone: validatedData.telephone,
           statut_rsvp: validatedData.statut_rsvp,
           nombre_personnes: validatedData.nombre_personnes,
         },
