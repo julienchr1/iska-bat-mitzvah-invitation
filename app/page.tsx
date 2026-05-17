@@ -43,9 +43,6 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Symbole hébraïque */}
-            <div className="text-4xl animate-shimmer">✡️</div>
-
             {/* Invitation */}
             <div className="pt-6">
               <p>
