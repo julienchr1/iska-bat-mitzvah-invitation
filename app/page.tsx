@@ -52,7 +52,7 @@ export default function Home() {
             </div>
 
             {/* Nom principal */}
-            <h1 className="text-8xl md:text-9xl font-bold text-blue-900 pt-4 animate-scale-in" style={{ fontFamily: "var(--font-great-vibes)" }}>
+            <h1 className="text-8xl md:text-9xl font-bold text-sky-400 pt-4 animate-scale-in" style={{ fontFamily: "var(--font-great-vibes)" }}>
               Iska
             </h1>
 
