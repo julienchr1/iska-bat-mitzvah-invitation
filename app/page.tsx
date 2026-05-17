@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import RSVPForm from '@/components/RSVPForm';
 import EventDetails from '@/components/EventDetails';
+import Gallery from '@/components/Gallery';
 
 export default function Home() {
   const [submitted, setSubmitted] = useState(false);
@@ -45,6 +46,7 @@ export default function Home() {
         ) : (
           <>
             <EventDetails />
+            <Gallery />
             <RSVPForm onSubmitSuccess={() => setSubmitted(true)} />
           </>
         )}
