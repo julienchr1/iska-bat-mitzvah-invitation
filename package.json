@@ -13,6 +13,7 @@
     "@types/jsonwebtoken": "^9.0.10",
     "@types/nodemailer": "^8.0.0",
     "canvas-confetti": "^1.9.4",
+    "jose": "^6.2.3",
     "jsonwebtoken": "^9.0.3",
     "next": "16.2.6",
     "nodemailer": "^8.0.7",

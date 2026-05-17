@@ -1,21 +1,30 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { verifyAuthToken } from './lib/auth';
+import { jwtVerify } from 'jose';
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
-  if (!pathname.startsWith('/admin')) {
-    return NextResponse.next();
-  }
-
+  // Allow /admin/login without authentication
   if (pathname === '/admin/login') {
     return NextResponse.next();
   }
 
-  const token = request.cookies.get('adminToken')?.value;
+  // Protect /admin/dashboard and other admin routes
+  if (pathname.startsWith('/admin')) {
+    const token = request.cookies.get('adminToken')?.value;
 
-  if (!token || !verifyAuthToken(token)) {
-    return NextResponse.redirect(new URL('/admin/login', request.url));
+    if (!token) {
+      return NextResponse.redirect(new URL('/admin/login', request.url));
+    }
+
+    try {
+      const secret = new TextEncoder().encode(process.env.JWT_SECRET || 'your-secret-key');
+      await jwtVerify(token, secret);
+      return NextResponse.next();
+    } catch (error) {
+      console.error('[Middleware] Token verification failed:', error);
+      return NextResponse.redirect(new URL('/admin/login', request.url));
+    }
   }
 
   return NextResponse.next();

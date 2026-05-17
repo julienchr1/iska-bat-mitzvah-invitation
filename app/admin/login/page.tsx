@@ -31,8 +31,10 @@ export default function AdminLogin() {
         return;
       }
 
-      router.push('/admin/dashboard');
+      // Connexion réussie, redirection vers le dashboard
+      await router.push('/admin/dashboard');
     } catch (err) {
+      console.error('Login error:', err);
       setError('Erreur réseau');
       setLoading(false);
     }

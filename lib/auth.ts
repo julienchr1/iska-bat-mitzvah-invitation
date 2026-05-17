@@ -28,6 +28,7 @@ export function verifyAuthToken(token: string): { email: string } | null {
     const decoded = jwt.verify(token, JWT_SECRET) as { email: string; exp: number };
     return { email: decoded.email };
   } catch (error) {
+    console.error('[Auth] Token verification failed:', error instanceof Error ? error.message : String(error));
     return null;
   }
 }
