@@ -4,12 +4,15 @@ import { useState } from 'react';
 import Image from 'next/image';
 import RSVPForm from '@/components/RSVPForm';
 import Countdown from '@/components/Countdown';
+import AudioPlayer from '@/components/AudioPlayer';
 
 export default function Home() {
   const [submitted, setSubmitted] = useState(false);
 
   return (
     <main className="min-h-screen flex flex-col">
+      <AudioPlayer />
+
       {/* Section 1: Invitation Hero */}
       <section className="relative w-full min-h-screen flex items-center justify-center">
         <Image
@@ -40,6 +43,9 @@ export default function Home() {
               </p>
             </div>
 
+            {/* Symbole hébraïque */}
+            <div className="text-4xl animate-shimmer">✡️</div>
+
             {/* Invitation */}
             <div className="pt-6">
               <p>
@@ -49,7 +55,7 @@ export default function Home() {
             </div>
 
             {/* Nom principal */}
-            <h1 className="text-6xl md:text-7xl font-bold gradient-gold pt-4">
+            <h1 className="text-6xl md:text-7xl font-bold gradient-gold pt-4 animate-scale-in">
               Iska
             </h1>
 
@@ -96,19 +102,27 @@ export default function Home() {
             <div className="space-y-6">
               <div>
                 <h3 className="text-lg font-bold text-gray-800 mb-2">📅 Date</h3>
-                <p className="text-gray-700">Dimanche 28 Juin 2026</p>
+                <p className="text-gray-700 font-semibold">Dimanche 28 Juin 2026</p>
               </div>
 
               <div>
                 <h3 className="text-lg font-bold text-gray-800 mb-2">🕐 Heure</h3>
-                <p className="text-gray-700">À partir de 12h30</p>
+                <p className="text-gray-700 font-semibold">À partir de 12h30</p>
               </div>
 
               <div>
                 <h3 className="text-lg font-bold text-gray-800 mb-2">📍 Lieu</h3>
-                <p className="text-gray-700">Centre Moshe Yossef ve David</p>
+                <p className="text-gray-700 font-semibold">Centre Moshe Yossef ve David</p>
                 <p className="text-gray-600">6 bis rue Émile Allez</p>
                 <p className="text-gray-600">75017 Paris</p>
+                <a
+                  href="https://maps.google.com/?q=Centre+Moshe+Yossef+ve+David+Paris"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500 hover:text-blue-700 text-sm mt-2 inline-block"
+                >
+                  📍 Ouvrir dans Google Maps
+                </a>
               </div>
 
               <div>
@@ -116,11 +130,16 @@ export default function Home() {
                 <p className="text-gray-700">Tenue de gala - Couleurs bleu et or</p>
               </div>
 
-              <div className="pt-4 border-t border-gray-200">
-                <p className="text-sm text-gray-600 text-center">
-                  ✨ Les Filles Seulement ✨<br />
-                  Merci de confirmer votre présence avant le 15 juin 2026
-                </p>
+              <div className="pt-4 border-t border-gray-200 space-y-3">
+                <div>
+                  <p className="text-sm font-semibold text-gray-800">✨ Les Filles Seulement ✨</p>
+                  <p className="text-sm text-gray-600 mt-1">
+                    Merci de confirmer votre présence avant le 15 juin 2026
+                  </p>
+                </div>
+                <div className="text-xs text-gray-500 pt-2">
+                  💡 <strong>Info pratique:</strong> Parking disponible à proximité
+                </div>
               </div>
             </div>
           </div>
@@ -139,21 +158,15 @@ export default function Home() {
 
         <div className="relative z-10 max-w-2xl mx-auto w-full">
           {submitted ? (
-            <div className="bg-white/95 rounded-lg p-8 md:p-12 text-center shadow-lg">
-              <div className="text-5xl mb-4">✨</div>
-              <h2 className="text-3xl font-bold text-gray-800 mb-4">Merci beaucoup !</h2>
-              <p className="text-lg text-gray-600 mb-6">
+            <div className="bg-white/95 rounded-lg p-8 md:p-12 text-center shadow-lg animate-fade-in-up">
+              <div className="text-6xl mb-4 animate-bounce">✨</div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Merci beaucoup !</h2>
+              <p className="text-lg text-gray-600 mb-4">
                 Votre réponse a été enregistrée avec succès.
               </p>
-              <p className="text-gray-600 mb-8">
-                À bientôt lors de cette belle célébration !
+              <p className="text-gray-600">
+                À bientôt lors de cette belle célébration ! 🎉
               </p>
-              <button
-                onClick={() => setSubmitted(false)}
-                className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
-              >
-                Nouvelle réponse
-              </button>
             </div>
           ) : (
             <RSVPForm onSubmitSuccess={() => setSubmitted(true)} />

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import confetti from 'canvas-confetti';
 
 interface FormData {
   nom: string;
@@ -40,6 +41,22 @@ export default function RSVPForm({ onSubmitSuccess }: RSVPFormProps) {
     }));
   };
 
+  const triggerConfetti = () => {
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 },
+    });
+
+    setTimeout(() => {
+      confetti({
+        particleCount: 50,
+        spread: 100,
+        origin: { y: 0.3 },
+      });
+    }, 200);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -64,7 +81,10 @@ export default function RSVPForm({ onSubmitSuccess }: RSVPFormProps) {
         throw new Error('Erreur lors de la soumission du formulaire');
       }
 
-      onSubmitSuccess();
+      triggerConfetti();
+      setTimeout(() => {
+        onSubmitSuccess();
+      }, 500);
     } catch (err) {
       setError(
         err instanceof Error ? err.message : 'Une erreur est survenue'
