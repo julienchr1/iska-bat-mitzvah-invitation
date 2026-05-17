@@ -16,7 +16,7 @@ export default function Home() {
       {/* Section 1: Invitation Hero */}
       <section className="relative w-full min-h-screen flex items-center justify-center">
         <Image
-          src="/images/image-1779027232323.jpg"
+          src="/images/section-1-iska.jpg"
           alt="Invitation Bat Mitzvah"
           fill
           className="object-cover"
