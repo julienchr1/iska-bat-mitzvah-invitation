@@ -1,10 +1,19 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 export default function AudioPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (audio) {
+      audio.play().catch(() => {
+        // Browser blocked autoplay, user will need to click button
+      });
+    }
+  }, []);
 
   const togglePlay = () => {
     if (audioRef.current) {
