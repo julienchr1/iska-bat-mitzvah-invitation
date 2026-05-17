@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { verifyAuthToken } from '@/lib/auth';
+import { jwtVerify } from 'jose';
 import { createClient } from '@supabase/supabase-js';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+const secret = new TextEncoder().encode(process.env.JWT_SECRET || 'your-secret-key');
 
 if (!supabaseUrl || !serviceRoleKey) {
   throw new Error('Missing Supabase environment variables');
@@ -15,11 +16,14 @@ export async function GET(request: NextRequest) {
   try {
     const token = request.cookies.get('adminToken')?.value;
 
-    if (!token || !verifyAuthToken(token)) {
-      return NextResponse.json(
-        { error: 'Non authentifié' },
-        { status: 401 }
-      );
+    if (!token) {
+      return NextResponse.json({ error: 'Non authentifié' }, { status: 401 });
+    }
+
+    try {
+      await jwtVerify(token, secret);
+    } catch {
+      return NextResponse.json({ error: 'Non authentifié' }, { status: 401 });
     }
 
     const { data, error } = await supabase
