@@ -24,9 +24,10 @@ const linkInviteSchema = z.object({
 
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const token = request.cookies.get('adminToken')?.value;
 
     if (!token) {
@@ -68,7 +69,7 @@ export async function PATCH(
     const { data, error } = await supabase
       .from('rsvp_responses')
       .update({ invite_id: inviteId })
-      .eq('id', params.id)
+      .eq('id', id)
       .select()
       .single();
 
