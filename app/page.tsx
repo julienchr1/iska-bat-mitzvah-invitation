@@ -21,29 +21,47 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-black/20" />
         <div className="relative z-10 max-w-2xl mx-auto px-4 py-12 text-center text-white">
-          <h1 className="text-4xl md:text-5xl font-bold mb-8">Bat Mitzvah d'Iska</h1>
-
-          <div className="space-y-6 text-lg md:text-xl leading-relaxed">
-            <p>
-              Laura et Julien Chriqui,<br />
-              ainsi que Raphael, Noé et Nathan,<br />
-              ont le plaisir de vous inviter à célébrer
-            </p>
-
-            <h2 className="text-5xl md:text-6xl font-bold gradient-gold">Iska</h2>
-
-            <p>
-              à l'occasion de sa Bat Mitzvah
-            </p>
-
-            <div className="pt-8 border-t border-white/50">
-              <p className="italic">
-                En compagnie de ses grands-parents :<br />
-                Michel et Chantal Chriqui,<br />
-                Suzy Hazan
+          <div className="space-y-8 text-lg md:text-xl leading-relaxed">
+            {/* Grands-parents */}
+            <div>
+              <p className="text-base md:text-lg">
+                M. et Mme Michel Chriqui<br />
+                M. et Mme Suzy Hazan
               </p>
             </div>
 
+            {/* Parents et frères/soeurs */}
+            <div className="space-y-2">
+              <p className="font-semibold">
+                Laura et Julien Chriqui
+              </p>
+              <p className="text-base md:text-lg">
+                Raphael, Noa et Nathan
+              </p>
+            </div>
+
+            {/* Invitation */}
+            <div className="pt-6">
+              <p>
+                ont la joie de vous faire part<br />
+                de la Bat Mitzvah de
+              </p>
+            </div>
+
+            {/* Nom principal */}
+            <h1 className="text-6xl md:text-7xl font-bold gradient-gold pt-4">
+              Iska
+            </h1>
+
+            {/* Date */}
+            <div className="pt-6">
+              <p className="text-xl md:text-2xl font-semibold">
+                Qui sera célébrée<br />
+                le dimanche 28 juin 2026
+              </p>
+            </div>
+
+            {/* Message Papi Haim */}
             <div className="pt-8 border-t border-white/50">
               <p className="text-sm md:text-base italic opacity-90">
                 ✨ Nous avons une pensée très forte pour notre grand-père adoré, Papi Haim ✨
