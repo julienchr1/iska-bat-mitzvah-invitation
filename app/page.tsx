@@ -77,7 +77,7 @@ export default function Home() {
       {/* Section 2: Countdown & Details */}
       <section className="relative w-full min-h-screen flex flex-col items-center justify-center py-12 px-4">
         <Image
-          src="/images/image-1779027200817.jpg"
+          src="/images/Sunset-behind-the-Kotel.jpg"
           alt="Détails événement"
           fill
           className="object-cover"
