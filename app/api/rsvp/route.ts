@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { z } from 'zod';
+import { sendNotificationEmail } from '@/lib/email';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -47,6 +48,15 @@ export async function POST(request: NextRequest) {
         { status: 500 }
       );
     }
+
+    // Send notification email to admins
+    await sendNotificationEmail({
+      nom: validatedData.nom,
+      prenom: validatedData.prenom,
+      telephone: validatedData.telephone,
+      statut_rsvp: validatedData.statut_rsvp,
+      nombre_personnes: validatedData.nombre_personnes,
+    });
 
     return NextResponse.json(
       { message: 'Réponse enregistrée avec succès', data },
