@@ -23,12 +23,13 @@ export default function Home() {
           priority
         />
         <div className="absolute inset-0 bg-black/20" />
+        <div className="absolute top-8 right-8 text-4xl md:text-5xl text-white opacity-80">בשד</div>
         <div className="relative z-10 max-w-2xl mx-auto px-4 py-12 text-center text-white">
           <div className="space-y-8 text-lg md:text-xl leading-relaxed">
             {/* Grands-parents */}
             <div>
               <p className="text-base md:text-lg">
-                Michel et Chantal Chriqui<br />
+                Mr et Mme Michel et Chantal Chriqui<br />
                 Mme Suzy Hazan
               </p>
             </div>
