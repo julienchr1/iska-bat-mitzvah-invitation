@@ -28,7 +28,7 @@ export default function Home() {
             {/* Grands-parents */}
             <div>
               <p className="text-base md:text-lg">
-                M. et Mme Michel Chriqui<br />
+                Michel et Chantal Chriqui<br />
                 Mme Suzy Hazan
               </p>
             </div>
@@ -39,7 +39,7 @@ export default function Home() {
                 Laura et Julien Chriqui
               </p>
               <p className="text-base md:text-lg">
-                Raphael, Noa et Nathan
+                Raphaël, Noa et Nathan
               </p>
             </div>
 
