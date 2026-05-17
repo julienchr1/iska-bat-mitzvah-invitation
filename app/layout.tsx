@@ -24,7 +24,23 @@ export const metadata: Metadata = {
   description: "Invitation à la Bat Mitzvah d'Iska - 28 Juin 2026",
   openGraph: {
     title: "Bat Mitzvah d'Iska",
-    description: "Vous êtes invité à la Bat Mitzvah d'Iska",
+    description: "Vous êtes invité à la Bat Mitzvah d'Iska - 28 Juin 2026 à Paris",
+    images: [
+      {
+        url: "/images/section-1-iska.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Bat Mitzvah d'Iska",
+      },
+    ],
+    locale: "fr_FR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Bat Mitzvah d'Iska",
+    description: "Invitation à la Bat Mitzvah d'Iska - 28 Juin 2026",
+    images: ["/images/section-1-iska.jpg"],
   },
 };
 
