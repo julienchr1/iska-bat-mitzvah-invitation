@@ -5,7 +5,7 @@ import confetti from 'canvas-confetti';
 
 interface FormData {
   nom: string;
-  statut_rsvp: 'oui' | 'non' | 'peut-être';
+  statut_rsvp: 'oui' | 'non';
   nombre_personnes: number;
 }
 
@@ -16,7 +16,7 @@ interface RSVPFormProps {
 export default function RSVPForm({ onSubmitSuccess }: RSVPFormProps) {
   const [formData, setFormData] = useState<FormData>({
     nom: '',
-    statut_rsvp: 'peut-être',
+    statut_rsvp: 'oui',
     nombre_personnes: 1,
   });
 
@@ -34,7 +34,7 @@ export default function RSVPForm({ onSubmitSuccess }: RSVPFormProps) {
     setError('');
   };
 
-  const handleStatusChange = (status: 'oui' | 'non' | 'peut-être') => {
+  const handleStatusChange = (status: 'oui' | 'non') => {
     setFormData((prev) => ({
       ...prev,
       statut_rsvp: status,
@@ -123,7 +123,7 @@ export default function RSVPForm({ onSubmitSuccess }: RSVPFormProps) {
             Je serai présente *
           </label>
           <div className="flex flex-col sm:flex-row gap-3">
-            {(['oui', 'non', 'peut-être'] as const).map((status) => (
+            {(['oui', 'non'] as const).map((status) => (
               <button
                 key={status}
                 type="button"
@@ -136,7 +136,6 @@ export default function RSVPForm({ onSubmitSuccess }: RSVPFormProps) {
               >
                 {status === 'oui' && '✅ Oui'}
                 {status === 'non' && '❌ Non'}
-                {status === 'peut-être' && '❓ Peut-être'}
               </button>
             ))}
           </div>
