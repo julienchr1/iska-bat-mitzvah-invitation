@@ -29,7 +29,7 @@ export default function Home() {
             <div>
               <p className="text-base md:text-lg">
                 M. et Mme Michel Chriqui<br />
-                M. et Mme Suzy Hazan
+                Mme Suzy Hazan
               </p>
             </div>
 
@@ -113,7 +113,7 @@ export default function Home() {
                 <p className="text-gray-600">6 bis rue Émile Allez</p>
                 <p className="text-gray-600">75017 Paris</p>
                 <a
-                  href="https://maps.google.com/?q=Centre+Moshe+Yossef+ve+David+Paris"
+                  href="https://share.google/K92oaR52a8i4NbdZ2"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-500 hover:text-blue-700 text-sm mt-2 inline-block"
@@ -124,18 +124,15 @@ export default function Home() {
 
               <div>
                 <h3 className="text-lg font-bold text-gray-800 mb-2">👗 Dress Code</h3>
-                <p className="text-gray-700">Tenue de gala - Couleurs bleu et or</p>
+                <p className="text-gray-700">Une tenue conforme à la halakha participerait à la joie de cette journée</p>
               </div>
 
-              <div className="pt-4 border-t border-gray-200 space-y-3">
+              <div className="pt-4 border-t border-gray-200">
                 <div>
                   <p className="text-sm font-semibold text-gray-800">✨ Les Filles Seulement ✨</p>
                   <p className="text-sm text-gray-600 mt-1">
                     Merci de confirmer votre présence avant le 15 juin 2026
                   </p>
-                </div>
-                <div className="text-xs text-gray-500 pt-2">
-                  💡 <strong>Info pratique:</strong> Parking disponible à proximité
                 </div>
               </div>
             </div>
