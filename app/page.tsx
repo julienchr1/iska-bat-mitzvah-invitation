@@ -4,6 +4,7 @@ import { useState } from 'react';
 import RSVPForm from '@/components/RSVPForm';
 import EventDetails from '@/components/EventDetails';
 import Gallery from '@/components/Gallery';
+import Countdown from '@/components/Countdown';
 
 export default function Home() {
   const [submitted, setSubmitted] = useState(false);
@@ -22,6 +23,11 @@ export default function Home() {
           </p>
           <div className="text-blue-500 text-3xl mb-6">✨</div>
         </div>
+      </section>
+
+      {/* Countdown Section */}
+      <section className="px-4 py-8 md:py-12 max-w-2xl mx-auto w-full">
+        <Countdown />
       </section>
 
       {/* Content Section */}
