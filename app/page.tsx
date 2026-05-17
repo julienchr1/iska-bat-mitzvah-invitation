@@ -13,7 +13,7 @@ export default function Home() {
       {/* Section 1: Invitation Hero */}
       <section className="relative w-full min-h-screen flex items-center justify-center">
         <Image
-          src="/images/image-1779027200817.jpg"
+          src="/images/image-1779027232323.jpg"
           alt="Invitation Bat Mitzvah"
           fill
           className="object-cover"
@@ -56,7 +56,7 @@ export default function Home() {
       {/* Section 2: Countdown & Details */}
       <section className="relative w-full min-h-screen flex flex-col items-center justify-center py-12 px-4">
         <Image
-          src="/images/image-1779027227962.jpg"
+          src="/images/image-1779027200817.jpg"
           alt="Détails événement"
           fill
           className="object-cover"
@@ -112,7 +112,7 @@ export default function Home() {
       {/* Section 3: RSVP Form */}
       <section className="relative w-full min-h-screen flex items-center justify-center py-12 px-4">
         <Image
-          src="/images/image-1779027232323.jpg"
+          src="/images/image-1779027227962.jpg"
           alt="Formulaire RSVP"
           fill
           className="object-cover"
