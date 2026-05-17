@@ -151,6 +151,13 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-black/30" />
 
+        <div className="absolute top-8 right-8 z-20">
+          <div className="text-right">
+            <p className="text-sm uppercase tracking-widest text-white/70 font-semibold">Only</p>
+            <p className="text-4xl md:text-5xl font-bold text-white" style={{ fontFamily: "var(--font-great-vibes)" }}>Girls</p>
+          </div>
+        </div>
+
         <div className="relative z-10 max-w-2xl mx-auto w-full">
           {submitted ? (
             <div className="bg-white/50 backdrop-blur-sm rounded-lg p-8 md:p-12 text-center shadow-lg animate-fade-in-up">
