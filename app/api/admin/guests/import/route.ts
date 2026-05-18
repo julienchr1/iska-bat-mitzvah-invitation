@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
         complete: (results) => {
           resolve(results.data as Record<string, string>[]);
         },
-        error: (error) => {
+        error: (error: { message: string }) => {
           reject(new Error(`CSV parsing error: ${error.message}`));
         },
       });

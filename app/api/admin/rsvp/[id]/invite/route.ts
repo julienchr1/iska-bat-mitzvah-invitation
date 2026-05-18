@@ -62,7 +62,7 @@ export async function PATCH(
 
       inviteId = newInvite.id;
     } else if (parsed.action === 'link') {
-      inviteId = parsed.invite_id;
+      inviteId = parsed.invite_id ?? null;
     }
 
     // Link the RSVP response to the invite
